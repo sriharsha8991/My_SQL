@@ -1,16 +1,21 @@
 # My_SQL
 The 
 > **Over view of basic sql.sql** 
+
 file  covers the basic crud operations and simple join operations with comments.
 
 This file use three different data bases in Databases folder:
-> album
-> scratch
-> world
+
+* album
+
+* scratch
+
+* world
 
 
 The file 
 > **operators and functions.sql** 
+
 covers various operators used in mysql with some examples 
 
 It covers some basic statements like usage of 
