@@ -1,0 +1,114 @@
+-- pROBLEMS BASED ON bOAT CLUB DATA BASE!!!!!!!!!!!!!!!!!
+USE BOAT_CLUB;
+SHOW TABLES;
+SELECT * FROM RESERVER_TABLES;
+UPDATE BOATS_TABLE SET COLOR = 'Red' WHERE BID=103;
+
+-- Q01. Find the names and sids of sailors who have reserved a red or a Green boat? 
+
+SELECT DISTINCT(SAILORS.SNAME),SAILORS.SID FROM SAILORS 
+JOIN RESERVER_TABLES ON	 SAILORS.SID = RESERVER_TABLES.SID
+JOIN BOATS_TABLE ON BOATS_TABLE.BID = RESERVER_TABLES.BID
+WHERE COLOR = 'RED' OR COLOR = 'GREEN';
+
+-- 02. Find the names and sids of sailors who have reserved a red and a Green boat?
+
+/*SELECT * FROM SAILORS
+JOIN RESERVER_TABLES ON	 SAILORS.SID = RESERVER_TABLES.SID
+*/
+
+SELECT DISTINCT s.SID, s.SNAME
+FROM sailors as s
+JOIN reserver_TABLES AS r ON s.SID = r.SID
+JOIN boats_table as b ON r.BID = b.BID
+WHERE b.COLOR = 'red' OR b.COLOR = 'green'
+-- using group by along with having to get the users who choosed bothred and green
+GROUP BY s.SID, s.SNAME
+-- having and count are used to find the no. of distinct colours reserved by rider
+-- here it was set to 2 to take only colours red and green
+HAVING COUNT(DISTINCT b.COLOR) = 2;
+
+
+-- Q3: Find all sids of sailors who have a rating of 10 or reserved boat 104?
+
+SELECT SID FROM SAILORS WHERE RATING = 10
+UNION
+SELECT SID FROM RESERVER_TABLES WHERE BID = 104;
+
+
+-- Q4: Find the names of sailors who have reserved boat 103? 
+ 
+SELECT SAILORS.SNAME FROM SAILORS 
+JOIN RESERVER_TABLES ON SAILORS.SID = RESERVER_TABLES.SID
+WHERE RESERVER_TABLES.BID = 103;
+
+
+
+-- 5:Find the names of sailors who have reserved a red boat? 
+
+SELECT DISTINCT SAILORS.SNAME FROM SAILORS 
+JOIN RESERVER_TABLES ON SAILORS.SID = RESERVER_TABLES.SID
+JOIN BOATS_TABLE ON RESERVER_TABLES.BID = BOATS_TABLE.BID
+WHERE COLOR = 'Red';
+
+
+
+-- 6:Find the names of sailors who have not reserved a red boat?
+/* RETURNS THE RECORDS THAT ARE IN BLOCK 1 AND BLOCK2 
+WHICH MEANS
+RETURNS ONLY THOSE RECORDS FROM BLOCK1 WHICH ARE MATCHING WITH RECORDS IN BLOCK2
+*/
+
+SELECT SAILORS.SNAME FROM SAILORS 
+JOIN RESERVER_TABLES ON SAILORS.SID = RESERVER_TABLES.SID
+JOIN BOATS_TABLE ON RESERVER_TABLES.BID = BOATS_TABLE.BID
+WHERE (COLOR = 'Blue' OR COLOR = 'Green')AND COLOR != 'Red'
+IN(
+SELECT SAILORS.SNAME FROM SAILORS 
+JOIN RESERVER_TABLES ON SAILORS.SID = RESERVER_TABLES.SID
+JOIN BOATS_TABLE ON RESERVER_TABLES.BID = BOATS_TABLE.BID
+WHERE COLOR = 'Red'
+)
+;
+
+
+
+-- Q7: Find sailors whose rating is better than some sailor called Horatio?
+-- qUESTION mODIFIED CHANGE NAME TO VENKY SINCE THERE IS NO NAME CALLED HORATIO
+
+SELECT  @rate := RATING FROM SAILORS WHERE SNAME = 'Venky';
+-- the above statement is used to store the particular values in variable named @rate
+SELECT SNAME FROM SAILORS WHERE RATING > @rate;
+-- in the second statement using rate, the given query is solved
+
+
+
+-- Q8: Find the sailors with the highest rating?
+-- SORTING IN DESCENDING ORDER
+
+SELECT SNAME FROM SAILORS 
+ORDER BY RATING DESC
+LIMIT 1;
+
+-- Q9: Find the names of sailors who have reserved both a red and a green boat? 
+
+SELECT DISTINCT(SAILORS.SNAME) FROM SAILORS 
+JOIN RESERVER_TABLES ON	 SAILORS.SID = RESERVER_TABLES.SID
+JOIN BOATS_TABLE ON BOATS_TABLE.BID = RESERVER_TABLES.BID
+WHERE COLOR = 'RED' OR COLOR = 'GREEN'
+GROUP BY SNAME
+HAVING COUNT(DISTINCT COLOR ) = 2;
+
+
+-- Q10: Find the names of sailors who have reserved boat no 103? 
+-- QUESTION IS SAME AS Q4 REFER ---------> Q4
+
+
+
+-- Q11: Find the  of sailors who have reserved all boats ?
+-- BASED ON THE IDEA THAT SAILOR CANNOT RESERVE THE SAME BOAT TWICE
+
+SELECT (SAILORS.SNAME) FROM SAILORS 
+JOIN RESERVER_TABLES ON	 SAILORS.SID = RESERVER_TABLES.SID
+GROUP BY SNAME
+HAVING COUNT(SAILORS.SNAME)=4;
