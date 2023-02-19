@@ -1,3 +1,5 @@
+**In this folder I will be following this study path and try to answer all the concepts and sql problems or quries whereever required and will do in jupyternotebook if there is something therotical topic need to be covered properly**
+
 > # Basic MY_SQL
 > ## Concepts
 > What is a Relational Database / RDBMS?
