@@ -1,5 +1,6 @@
 # My_SQL
-> The MYSQL Interview_prep folder consists of all my interview prepartion which is on going Go and have a look at it, ** Every folder has its own read me for more information
+> The MYSQL Interview_prep folder consists of all my interview prepartion which is on going Go and have a look at it, ** Every folder has its own read me for more information**
+
 The 
 > **Over view of basic sql.sql** 
 
