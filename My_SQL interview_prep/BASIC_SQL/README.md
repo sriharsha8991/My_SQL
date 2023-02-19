@@ -40,4 +40,4 @@
 
 > INNER join
 * How to fetch data from multiple tables
-**NOTE: This series of topics is taken from a blog ![techtfq](https://techtfq.com/blog/how-to-learn-sql-for-free-roadmap-to-learning-sql)**
+**NOTE: This series of topics is taken from a blog [techtfq](https://techtfq.com/blog/how-to-learn-sql-for-free-roadmap-to-learning-sql)**
