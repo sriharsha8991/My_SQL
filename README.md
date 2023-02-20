@@ -7,11 +7,8 @@
 file  covers the basic crud operations and simple join operations with comments.
 
 This file use three different data bases in Databases folder:
-
 * album
-
 * scratch
-
 * world
 
 
