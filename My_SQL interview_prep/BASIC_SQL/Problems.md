@@ -10,4 +10,5 @@
 * [4.customers-who-never-order](https://leetcode.com/problems/customers-who-never-order/)
 * [5.recyclable-and-low-fat-products](https://leetcode.com/problems/recyclable-and-low-fat-products/)
 * [6.find-total-time-spent-by-each-employee](https://leetcode.com/problems/find-total-time-spent-by-each-employee/)
+* [7.daily-leads-and-partners](https://leetcode.com/problems/daily-leads-and-partners/)
 
