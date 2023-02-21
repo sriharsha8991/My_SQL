@@ -4,4 +4,7 @@
 ## LeetCode
 
 #### Easy Problems:
-[1.combine-two-tables](https://leetcode.com/problems/combine-two-tables/)
+* [1.combine-two-tables](https://leetcode.com/problems/combine-two-tables/)
+* [employees-earning-more-than-their-managers](https://leetcode.com/problems/employees-earning-more-than-their-managers/)
+* [duplicate-emails](https://leetcode.com/problems/duplicate-emails/)
+* [customers-who-never-order](https://leetcode.com/problems/customers-who-never-order/) 
