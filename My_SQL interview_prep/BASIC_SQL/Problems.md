@@ -11,5 +11,5 @@
 * [5.recyclable-and-low-fat-products](https://leetcode.com/problems/recyclable-and-low-fat-products/)
 * [6.find-total-time-spent-by-each-employee](https://leetcode.com/problems/find-total-time-spent-by-each-employee/)
 * [7.daily-leads-and-partners](https://leetcode.com/problems/daily-leads-and-partners/)
-* [rearrange-products-table](https://leetcode.com/problems/rearrange-products-table/)
+* [8.rearrange-products-table](https://leetcode.com/problems/rearrange-products-table/)
 
